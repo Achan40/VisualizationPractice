@@ -1,17 +1,26 @@
 import pandas as pd
-import numpy as np
-import geopandas as gpd
-import plotly.figure_factory as ff
+import plotly as py
+import plotly.graph_objs as go
 
 #import excel file
 failed = pd.read_csv('banklist.csv')
+#list of states(unique)
+failed_states = list(set(failed['ST']))
 
-fips = ['06021', '06023', '06027',
-        '06029', '06033', '06059',
-        '06047', '06049', '06051',
-        '06055', '06061']
-values = range(len(fips))
+#loop to find the number of failures per state
+listx = []
+for i in failed_states:
+        #gets the sum of boolean values for 'true' for any state and appends to empty list
+        x = len(failed[failed['ST'].str.contains(i)])
+        listx.append(x)
 
-fig = ff.create_choropleth(fips=fips, values=values)
-fig.layout.template = None
-fig.show()
+data = dict (
+    type = 'choropleth',
+    locations = failed_states,
+    locationmode = 'USA-states',
+    colorscale = 'Viridis',
+    z = listx)
+
+lyt = dict(geo=dict(scope='usa'))
+map = go.Figure(data=[data], layout = lyt)
+py.offline.plot(map)
