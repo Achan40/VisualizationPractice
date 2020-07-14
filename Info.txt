@@ -1,0 +1,1 @@
+Conda enviornment information: https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html
