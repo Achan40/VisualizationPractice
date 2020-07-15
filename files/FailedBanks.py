@@ -24,48 +24,18 @@ for key in d.keys():
         listx.append(x)
         #loop until total data for each year acheived
         if len(listx) == len(failed_states):
+            #uses each loop to output a graph of a choropleth map for bank failures per year in the US for all keys in the dictionary
             data = dict(
                 type = 'choropleth',
                 locations = failed_states,
                 locationmode = 'USA-states',
                 colorscale = 'Viridis',
-                z = listx)
+                z = listx,
+                zmin = 0,
+                zmax = 30,
+                title='test')
             lyt = dict(geo=dict(scope='usa'))
             map = go.Figure(data=[data], layout=lyt)
             py.offline.plot(map)
-            print(listx)
         else:
             continue
-
-
-#data = dict(
-    #type = 'choropleth',
-    #locations = failed_states,
-    #locationmode = 'USA-states',
-    #colorscale = 'Viridis',
-    #z = listx)
-#lyt = dict(geo=dict(scope='usa'))
-#map = go.Figure(data=[data], layout=lyt)
-#py.offline.plot(map)
-
-#select rows ending with '00' for the year 2000
-#failed_00 = failed[failed['Closing Date'].str.endswith('00')]
-
-#loop to find the number of failures per state for year
-#listx = []
-#for i in failed_states:
-        #gets the sum of boolean values for 'true' for any state and appends to empty list
-#        x = len(failed_00[failed_00['ST'].str.contains(i)])
-  #      listx.append(x)
- #       print(listx)
-
-#data = dict (
-    #type = 'choropleth',
-    #locations = failed_states,
-    #locationmode = 'USA-states',
-    #colorscale = 'Viridis',
-    #z = listx)
-
-#lyt = dict(geo=dict(scope='usa'))
-#map = go.Figure(data=[data], layout = lyt)
-#py.offline.plot(map)
