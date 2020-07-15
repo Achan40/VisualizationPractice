@@ -1,3 +1,5 @@
 Conda enviornment information: https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html
 
 Guide: https://plotly.com/python/county-choropleth/
+
+Guide: https://towardsdatascience.com/how-to-create-an-animated-choropleth-map-with-less-than-15-lines-of-code-2ff04921c60b
