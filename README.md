@@ -12,3 +12,4 @@ Organizes the failed banks by year into a dictionary for each year. From there, 
 FailedBanksAnimation.py:
 Instead of writing loops to create graphs for each year, plotly express has an animation function so that we can animate our data. There was a good amount of data wrangling in order to retrieve the data that we wanted, but after that, we could just use the choropleth function to create an animated map.
 
+![Animation Demo](files/demo.gif)
